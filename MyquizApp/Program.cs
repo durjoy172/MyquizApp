@@ -29,8 +29,8 @@
             
             
             Quiz myQuiz= new Quiz(questions);
+
             myQuiz.StartQuiz();
-            Console.WriteLine($"Your total Score For the Quiz is: {myQuiz.Result}");
             Console.ReadKey();
         }
     }

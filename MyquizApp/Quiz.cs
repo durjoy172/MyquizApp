@@ -6,21 +6,23 @@ namespace MyquizApp
 {
     internal class Quiz
     {
-        private Questions[] questions;
+        private Questions[] _questions;
 
-        private static int result = 0;
-        public int Result{ get { return result; } }
+        private int _result;
+      
 
 
         public Quiz(Questions[] questions)
         {
-            this.questions = questions;
+            this._questions = questions;
+            _result = 0;
+            
         }
         public void StartQuiz()
         {
             Console.WriteLine("Welcome to the Quiz!");
             int questionNumber = 1;
-            foreach (Questions questions in questions)
+            foreach (Questions questions in _questions)
             {
                 Console.WriteLine($"Question {questionNumber++}:");
                 DisplayQuestion(questions);
@@ -30,7 +32,7 @@ namespace MyquizApp
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Correct");
                     Console.ResetColor();
-                    result++;
+                    _result++;
                 }
                 else
                 {
@@ -38,6 +40,7 @@ namespace MyquizApp
                     Console.WriteLine($"Incorrect! The correct answer is {questions.Answers[questions.CorrectAnswerIndex]}");
                     Console.ResetColor();
                 }
+                Console.WriteLine($"Your total Score For the Quiz is: {_result}");
             }
         }
         private void DisplayQuestion(Questions question)
