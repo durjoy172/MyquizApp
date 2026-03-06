@@ -27,12 +27,16 @@ namespace MyquizApp
                 int userChoice=GetUserChoice();
                 if (questions.IsCorrectAnswer(userChoice)) 
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Correct");
+                    Console.ResetColor();
                     result++;
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Incorrect! The correct answer is {questions.Answers[questions.CorrectAnswerIndex]}");
+                    Console.ResetColor();
                 }
             }
         }
